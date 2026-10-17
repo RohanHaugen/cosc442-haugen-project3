@@ -118,7 +118,12 @@ public class VendingMachineTest {
             vendingMachine1.removeItem( "E");
         });
     }
-
+    @Test 
+    void testRemoveItem_emptyIndex_throwsException() {
+        assertThrows(VendingMachineException.class, () -> {
+            vendingMachine1.removeItem( "A");
+        });
+    }
     @Test
     void testReturnChange_validAmount_returnsBalance() {
         vendingMachine1.insertMoney(3.0);
